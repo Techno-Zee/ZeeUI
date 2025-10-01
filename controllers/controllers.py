@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import request
 
+class ZeeUi(http.Controller):
+    """Class to search and filter values in dashboard"""
 
-# class ZeeUi(http.Controller):
-#     @http.route('/zee_ui/zee_ui', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+    @http.route('/api/zee_ui/dashboard_search', type='json', auth='user')
+    def dashboard_search(self, search_input):
+        """Filter dashboard blocks by name"""
+        blocks = request.env['dashboard.block'].sudo().search([
+            ('name', 'ilike', search_input)
+        ])
+        return blocks.ids
 
-#     @http.route('/zee_ui/zee_ui/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('zee_ui.listing', {
-#             'root': '/zee_ui/zee_ui',
-#             'objects': http.request.env['zee_ui.zee_ui'].search([]),
-#         })
-
-#     @http.route('/zee_ui/zee_ui/objects/<model("zee_ui.zee_ui"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('zee_ui.object', {
-#             'object': obj
-#         })
-
+    @http.route('/api/zee_ui/check_access', type='json', auth='user')
+    def check_access(self):
+        """Check access rights of the current user in custom dashboard groups"""
+        user = request.env.user
+        return {
+            "is_user": user.has_group("zee_ui.group_dashboard_user"),
+            "is_manager": user.has_group("zee_ui.group_dashboard_manager"),
+            "is_admin": user.has_group("zee_ui.group_dashboard_admin"),
+        }

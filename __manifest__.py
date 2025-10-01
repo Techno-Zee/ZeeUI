@@ -2,20 +2,21 @@
 # Module: UI & Dashboard Management
 # Provides dynamic UI components (icons, menus, views, dashboards, etc.)
 
-# ████████╗ ██████╗██╗  ██╗███╗   ██╗ ██████╗     ███████╗███████╗███████╗
-# ╚══██╔══╝██╔════╝██║  ██║████╗  ██║██╔═══██╗    ╚══███╔╝██╔════╝██╔════╝
-#    ██║   ██║     ███████║██╔██╗ ██║██║   ██║      ███╔╝ █████╗  █████╗  
-#    ██║   ██║     ██╔══██║██║╚██╗██║██║   ██║     ███╔╝  ██╔══╝  ██╔══╝  
-#    ██║   ╚██████╗██║  ██║██║ ╚████║╚██████╔╝    ███████╗███████╗███████╗
-#    ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚══════╝╚══════╝                                              
+# ████████╗███████╗ ██████╗██╗  ██╗███╗   ██╗ ██████╗     ███████╗███████╗███████╗
+# ╚══██╔══╝██╔════╝██╔════╝██║  ██║████╗  ██║██╔═══██╗    ╚══███╔╝██╔════╝██╔════╝
+#    ██║   █████╗  ██║     ███████║██╔██╗ ██║██║   ██║      ███╔╝ █████╗  █████╗  
+#    ██║   ██╔══╝  ██║     ██╔══██║██║╚██╗██║██║   ██║     ███╔╝  ██╔══╝  ██╔══╝  
+#    ██║   ███████╗╚██████╗██║  ██║██║ ╚████║╚██████╔╝    ███████╗███████╗███████╗
+#    ╚═╝   ╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝     ╚══════╝╚══════╝╚══════╝
+                                                                                                                             
 {
     'name': "ZeeUI",
 
     'summary': "Dynamic UI and dashboard management for Odoo",
     'description': """
-ZeeUI enhances the Odoo interface by providing a dynamic and customizable 
-user experience. It includes configurable dashboards, icons, menus, and views 
-that make navigation and management more intuitive.
+        ZeeUI enhances the Odoo interface by providing a dynamic and customizable 
+        user experience. It includes configurable dashboards, icons, menus, and views 
+        that make navigation and management more intuitive.
     """,
 
     'author': "Techno Zee",
@@ -29,9 +30,21 @@ that make navigation and management more intuitive.
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',  
+        # Security access control
+        'security/security.xml',
+        'security/ir.model.access.csv',
+        
+        # Views
+        'views/dashboard_views.xml',
+        'views/dashboard_block_views.xml',
+        'views/dashboard_menu_views.xml',
+        'views/dashboard_menu_inherit_views.xml',
+        
+        'wizard/dashboard_mail_views.xml', 
+        
+        # Menu & Actions
+        'views/action.xml', 
+        'views/menu.xml',
     ],
     # External assets
     'assets': {
@@ -45,6 +58,7 @@ that make navigation and management more intuitive.
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
+        # 'demo/dashboard_theme.xml',
     ],
     'application': True,
     'installable': True,

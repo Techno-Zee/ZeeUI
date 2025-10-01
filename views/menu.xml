@@ -1,4 +1,56 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    
+
+    <!-- ========== ROOT MENU ========== -->
+    <menuitem
+        id="menu_dashboard"
+        name="Dashboards"
+        sequence="6"
+        web_icon="zee_ui,static/description/icon.png"
+    />
+
+    <!-- ========== SUB MENU (LEVEL 1) ========== -->
+    <!-- Dashboard Root -->
+    <menuitem
+        id="dashboard_root_menu"
+        name="Dashboard"
+        parent="menu_dashboard"
+        action="dashboard_view_action"
+        sequence="0"
+    />
+
+    <!-- Management Root -->
+    <menuitem
+        id="management_menu"
+        name="Management Menu"
+        parent="menu_dashboard"
+        sequence="1"
+    />
+
+    <!-- Blocks Root -->
+    <menuitem
+        id="dashboard_block_menu"
+        name="Dashboard Blocks"
+        parent="menu_dashboard"
+        action="dashboard_block_action"
+        sequence="5"
+    />
+
+    <!-- ========== SUB MENU (LEVEL 2 di bawah Management) ========== -->
+    <menuitem
+        id="dashboard_menu_view_action"
+        name="Dashboard Menu"
+        parent="management_menu"
+        action="dashboard_menu_action"
+        sequence="10"
+    />
+
+    <menuitem
+        id="core_menu"
+        name="Core Menu"
+        parent="management_menu"
+        action="core_menu_action"
+        sequence="20"
+    />
+
 </odoo>
