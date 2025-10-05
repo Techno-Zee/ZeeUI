@@ -4,7 +4,7 @@
     <!-- ========== ROOT MENU ========== -->
     <menuitem
         id="menu_dashboard"
-        name="Dashboards"
+        name="Zee UI"
         sequence="6"
         web_icon="zee_ui,static/description/icon.png"
     />

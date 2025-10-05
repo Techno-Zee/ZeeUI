@@ -52,7 +52,7 @@ class DashboardMenu(models.Model):
         # Create client action
         action = self.env['ir.actions.client'].create({
             'name': vals.get('name'),
-            'tag': 'OdooDynamicDashboard',
+            'tag': 'OdooDashboard',
         })
         vals['client_action_id'] = action.id
 

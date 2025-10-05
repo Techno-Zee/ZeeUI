@@ -49,9 +49,21 @@
     # External assets
     'assets': {
         'web.assets_backend': [
-            'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css',
+            'https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js',
+            'https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js',
+            '//code.jquery.com/jquery-2.2.1.min.js',
+            
+            # Libraries 
+            'zee_ui/static/lib/apexcharts/dist/apexcharts.min.js',
+            'zee_ui/static/lib/jspdf/dist/jspdf.umd.min.js',
+            'zee_ui/static/lib/gridstack/dist/gridstack-all.js',
+            'zee_ui/static/lib/gridstack/dist/gridstack.min.css',
+            
             'zee_ui/static/src/**/*.js',
             'zee_ui/static/src/**/*.css',
+            'zee_ui/static/src/**/*.scss',
             'zee_ui/static/src/**/*.xml',
         ],
     },

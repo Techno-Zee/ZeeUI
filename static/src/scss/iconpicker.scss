@@ -1,0 +1,47 @@
+.o_field_icon_picker {
+  .icon-picker-dropdown {
+    position: absolute;
+    z-index: 1100;
+    width: 280px;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+
+      .icon-item {
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:hover {
+          background-color: #f8f9fa;
+        }
+
+        &.active {
+          background-color: #e9ecef;
+        }
+      }
+    }
+  }
+
+  .input-group {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .icon-item .small {
+    font-size: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Batas maksimal 2 baris */
+    line-clamp: 2;
+    /* Batas maksimal 2 baris */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+}

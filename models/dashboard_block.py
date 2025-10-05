@@ -267,6 +267,8 @@ class DashboardBlock(models.Model):
          and save them in the database"""
         for data in grid_data_list:
             block = self.browse(int(data['id']))
+            if not block:
+                continue
             updated_values = {}
             if data.get('data-x'):
                 updated_values.update({
